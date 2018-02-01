@@ -7,11 +7,6 @@ socket.on('connect', function () {
     //     to: 'jen@example.com',
     //     text: 'Hey. This is Andrew.'
     // });
-
-    socket.emit('createMessage', {
-        from: 'Gemma',
-        text: 'Hi Steve'
-    });
 });
 
 socket.on('disconnect', function () {
@@ -23,5 +18,5 @@ socket.on('disconnect', function () {
 // });
 
 socket.on('newMessage', function (msg) {
-    console.log('New Message:', msg);
+    console.log('newMessage:', msg);
 });
