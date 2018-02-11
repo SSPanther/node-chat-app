@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 // adduser(id, name, room)
 // removeUser(id)
 // getUser(id)
@@ -36,6 +38,18 @@ class Users {
         var namesArray = users.map((user) => user.name);
 
         return namesArray;
+    }
+
+    getUserByName (name) {
+        return this.users.filter((user) => user.name === name)[0];
+    }
+
+    getRoomList() {
+        var uniqueRooms = _.map(_.uniqBy(this.users, 'room'), (item) => {
+            return item.room;
+        });
+        //console.log('rooms', uniqueRooms);
+        return uniqueRooms;
     }
 }
 

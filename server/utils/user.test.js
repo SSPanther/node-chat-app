@@ -83,4 +83,22 @@ describe('Users', () => {
 
         expect(userList).toEqual(['Jen']);
     });
+
+    it('should find user by name', () => {
+        var foundUser = users.getUserByName('Jen');
+        
+        expect(foundUser).toEqual(users.users[1]);
+    });
+
+    it('should not find user by name', () => {
+        var foundUser = users.getUserByName('Jo');
+
+        expect(foundUser).toBeFalsy();
+    })
+
+    it('should return list of rooms', () => {
+        var roomList = users.getRoomList();
+
+        expect(roomList.length).toBe(2);
+    })
 });
